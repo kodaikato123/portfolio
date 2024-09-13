@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Kodai Kato, a future Software Engineer.">
+    <title>Portfolio</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" />
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+        }
+
+
+        header {
+            height: 80vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #7d85f7, #777a92);
+            color: white;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            text-align: left;
+        }
+
+        .profile-picture {
+            flex-shrink: 0;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .profile-picture img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .profile-description {
+            max-width: 600px;
+        }
+
+        .profile-description h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .profile-description p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .additional-description {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #ffffff;
+        }
+
+        .btn-message {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+        }
+
+        .btn-message:hover {
+            opacity: 0.9;
+        }
+
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px; 
+            background-color: #3b3b5c;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .social-icons a {
+            margin-left: 15px;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.7;
+        }
+
+        section.projects {
+            height: 80vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #777a92, #7d85f7);
+            color: white;
+            margin-top: -50px; 
+        }
+
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 20px; 
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .projects .container {
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .projects .row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .projects .card {
+            border: none;
+            overflow: hidden;
+            position: relative;
+            width: 300px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .projects .card img {
+            object-fit: cover;
+            width: 100%;
+            height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .projects .card img:hover {
+            transform: scale(1.05);
+        }
+
+        .projects .card-body {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .projects .card:hover .card-body {
+            opacity: 1;
+        }
+
+        .projects .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .projects .card-text {
+            font-size: 1rem;
+        }
+
+        section.tools {
+            height: 80vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #7d85f7, #777a92);
+            color: white;
+            margin-top: -50px; 
+        }
+
+        .tools h2 {
+            font-size: 2rem; 
+            margin-bottom: 20px; 
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .tools .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .tools .tool-card {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tools .tool-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .tools .tool-card img {
+            max-width: 100px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .tools .tool-card img:hover {
+            transform: scale(1.05);
+        }
+
+        section.contact {
+            height: 80vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #777a92, #7d85f7);
+            color: white;
+            margin-top: -50px; 
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px; 
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .contact p {
+            font-size: 1rem; 
+            margin-bottom: 20px; 
+            color: #ffffff;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; 
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: #777a92;
+            color: #ffffff;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px; 
+        }
+
+        .contact-form button:hover {
+            background-color: #5a63cc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+
+    <nav>
+        <div class="d-flex">
+            <a href="#" id="about-link">About</a>
+            <a href="#" id="projects-link">Projects</a>
+            <a href="#" id="contact-link">Contact</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/kodaikto" target="_blank">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="https://www.facebook.com/kodai.kto" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="https://github.com/kodaikato123" target="_blank">
+                <ion-icon name="logo-github"></ion-icon>
+            </a>
+            <a href="https://www.tiktok.com/@yourusername" target="_blank">
+                <ion-icon name="logo-tiktok"></ion-icon>
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+        </div>
+    </nav>
+
+    <div class="header-container">
+        <div class="profile-picture">
+            <img src="prof.jpg" alt="Profile Picture" />
+            <a href="mailto:kodaikato25@gmail.com" class="btn-message">Message me</a>
+        </div>
+        <div class="profile-description">
+            <h1>About me</h1>
+            <p>Hi, I'm <b>Kodai Kato</b>, a BSIT 3rd year college student from the University of the Assumption, future Web Developer.</p>
+            <p class="additional-description">I'm passionate about coding, technology, and solving real-world problems. I'm always eager to learn new skills and take on challenges. Feel free to reach out if you'd like to collaborate or just have a chat about tech!</p>
+        </div>
+    </div>
+</header>
+
+
+<section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="abc.png" class="card-img-top" alt="Project 1 Image">
+                    <div class="card-body">
+ 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="unnamed.png" class="card-img-top" alt="Project 2 Image">
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="asdasd.png" class="card-img-top" alt="Project 3 Image">
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="tools" class="tools">
+    <h2>Tools I Use</h2>
+    <div class="container">
+        <div class="tool-card">
+            <img src="pkt.jpg" alt="Tool 1">
+        </div>
+        <div class="tool-card">
+            <img src="vs.jpg" alt="Tool 2">
+        </div>
+        <div class="tool-card">
+            <img src="canva.jpg" alt="Tool 3">
+        </div>
+
+    </div>
+</section>
+
+
+<section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or want to get in touch, feel free to fill out the form below!</p>
+    <div class="contact-form">
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    document.getElementById('contact-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('projects-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
